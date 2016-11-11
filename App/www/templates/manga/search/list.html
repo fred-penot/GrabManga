@@ -1,18 +1,19 @@
-<ion-list>
-    <ion-item class="item" style="padding-top: 0px !important; padding-bottom: 0px !important;">
-        <ul ng-if="paginatorAlpha.length" class="pagination" style="text-align: center">
-            <li ng-repeat="pageAlpha in paginatorAlpha" ng-class="{active:paginatorAlpha.currentPageAlpha === pageAlpha}">
+<ion-list class="searchList">
+    <ion-item class="item">
+        <ul ng-if="paginatorAlpha.length" class="pagination">
+            <li ng-repeat="pageAlpha in paginatorAlpha"
+                ng-class="{active:paginatorAlpha.currentPageAlpha === pageAlpha}">
                 <a ng-click="showMangaList(pageAlpha)">{{pageAlpha}}</a>
             </li>
         </ul>
     </ion-item>
-    <ion-item class="item" ng-repeat="item in items" style="padding-top: 0px !important; padding-bottom: 0px !important;">
+    <ion-item class="item" ng-repeat="item in items">
         <div class="row" ng-click="showMangaMore(item)">
             {{item.title}}
         </div>
     </ion-item>
 </ion-list>
-<div class="bar bar-footer" style="margin-bottom: 80px;">
+<div class="bar bar-footer searchPaginator">
     <ul ng-if="pager.pages.length" class="pagination">
         <li ng-class="{disabled:pager.currentPage === 1}">
             <a ng-click="setPage(pager.currentPage - 1)"> < </a>

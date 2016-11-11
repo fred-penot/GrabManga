@@ -1,30 +1,31 @@
 <ion-view view-title="Archive" id="mangaArchiveCtrl">
     <ion-content>
         <ion-list>
-            <ion-item ng-repeat="history in histories"
-                      style="padding-top: 0px !important; padding-bottom: 0px !important;">
-                <div class="row" style="padding-top: 0px !important; padding-bottom: 0px !important;">
-                    <div class="col col-90" style="padding-top: 15px !important; padding-bottom: 0px !important;">
+            <ion-item ng-repeat="history in histories" class="archive">
+                <div class="row">
+                    <div class="col col-90">
                         <h3>{{ history.manga_name }} - {{ history.title }}</h3>
                     </div>
-                    <div class="col col-10" style="padding-top: 0px !important; padding-bottom: 0px !important;">
-                        <button class="button button-icon icon ion-trash-a" ng-click="deleteHistory(history.id)"></button>
+                    <div class="col col-10">
+                        <button class="button button-icon icon ion-trash-a"
+                                ng-click="deleteHistory(history.id)"></button>
                     </div>
                 </div>
-                <div class="row" style="padding-top: 0px !important; padding-bottom: 0px !important;">
-                    <div class="col col-10" style="padding-left: 0px !important; padding-right: 15px !important; padding-top: 0px !important; padding-bottom: 0px !important;">
-                        <button class="button button-icon icon ion-archive" ng-click="downloadArchive($index, history)"></button>
+                <div class="row">
+                    <div class="col col-10 archiveDownload">
+                        <button class="button button-icon icon ion-archive"
+                                ng-click="downloadArchive($index, history)"></button>
                     </div>
-                    <div class="col" ng-if="history.isDownload" ng-show="history.show"
-                         style="padding-top: 0px !important; padding-bottom: 0px !important;">
+                    <div class="col archiveProgressBar" ng-if="history.isDownload" ng-show="history.show">
                         <progress id="progressbar" max="100" value="{{ progressval }}"></progress>
                     </div>
-                    <div class="col col-10" style="padding-top: 15px !important; padding-bottom: 0px !important;">
-                        <div ng-if="history.isDownload" ng-show="history.show" ng-hide="history.finish" id="progressbarlabel">
+                    <div class="col col-10 archiveProgressInfo">
+                        <div ng-if="history.isDownload" ng-show="history.show"
+                             ng-hide="history.finish" id="progressbarlabel">
                             {{ progressval }} %
                         </div>
                     </div>
-                    <div class="col col-10" style="padding-left: 25px !important;padding-top: 15px !important; padding-bottom: 0px !important;">
+                    <div class="col col-10 archiveProgressResult">
                         <i class="icon ion-happy-outline" ng-show="history.download_success"></i>
                         <i class="icon ion-sad" ng-show="history.download_error"></i>
                     </div>
