@@ -1,0 +1,12 @@
+current_path=`pwd`
+param1=$1
+param2=$2
+param3=$3
+
+isInPathGulp=`echo $PATH | grep /node_modules/gulp/bin | wc -l`
+if [ $isInPathGulp -eq 0 ] ; then
+	export PATH=${current_path}/App/node_modules/gulp/bin:$PATH
+fi
+
+cd App
+gulp.js ${param1} ${param2} ${param3}
