@@ -1,0 +1,15 @@
+.home {
+  > div .row {
+    padding-top: 100px;
+    &:first-child {
+      > div {
+        text-align: center;
+      }
+    }
+    &:last-child {
+      > div {
+        text-align: left;
+      }
+    }
+  }
+}

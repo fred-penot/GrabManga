@@ -1,0 +1,39 @@
+.archive {
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+  > div {
+    padding-top: 0px !important;
+    padding-bottom: 0px !important;
+    &:first-child {
+      > div {
+        padding-bottom: 0px !important;
+        &:first-child {
+          padding-top: 15px !important;
+        }
+        &:last-child {
+          padding-top: 0px !important;
+        }
+      }
+    }
+    &:last-child {
+      > div {
+        padding-bottom: 0px !important;
+      }
+      > .archiveDownload {
+        padding-left: 0px !important;
+        padding-right: 15px !important;
+        padding-top: 0px !important;
+      }
+      > .archiveProgressBar {
+        padding-top: 0px !important;
+      }
+      > .archiveProgressInfo {
+        padding-top: 15px !important;
+      }
+      > .archiveProgressResult {
+        padding-left: 25px !important;
+        padding-top: 15px !important;
+      }
+    }
+  }
+}
