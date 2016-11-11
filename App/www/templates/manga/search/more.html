@@ -1,0 +1,39 @@
+<ion-modal-view>
+    <ion-header-bar class="bar bar-header bar-assertive">
+        <h1 class="title">{{ title }}</h1>
+        <button class="button button-icon icon ion-ios-undo-outline" ng-click="closeMore()"></button>
+    </ion-header-bar>
+    <ion-content>
+        <div class="padding">
+            {{ synopsis }}
+        </div>
+        <div class="padding">
+            <form ng-submit="doGenerate()">
+                <ion-item class="item item-input item-select">
+                    <div class="input-label">
+                        Tome
+                    </div>
+                    <select ng-model="searchData.tome" ng-change="selectTome()">
+                        <option ng-repeat="tome in tomes" value="{{tome.id}}">
+                            {{tome.title}}
+                        </option>
+                    </select>
+                </ion-item>
+                <ion-item class="item item-input item-select">
+                    <div class="input-label">
+                        Chapitre
+                    </div>
+                    <select ng-model="searchData.chapter" ng-change="selectChapter()">
+                        <option ng-repeat="chapter in chapters" value="{{chapter.id}}" >
+                            {{chapter.title}}
+                        </option>
+                    </select>
+                </ion-item>
+                <ion-item ng-show="tomeOrChapterSelect">
+                    <button class="button button-block button-assertive ion-wand"
+                            type="submit">&nbsp;&nbsp;&nbsp;Générer {{typeGenerateInfo}}</button>
+                </ion-item>
+            </form>
+        </div>
+    </ion-content>
+</ion-modal-view>

@@ -1,0 +1,27 @@
+<ion-list>
+    <ion-item class="item" style="padding-top: 0px !important; padding-bottom: 0px !important;">
+        <ul ng-if="paginatorAlpha.length" class="pagination" style="text-align: center">
+            <li ng-repeat="pageAlpha in paginatorAlpha" ng-class="{active:paginatorAlpha.currentPageAlpha === pageAlpha}">
+                <a ng-click="showMangaList(pageAlpha)">{{pageAlpha}}</a>
+            </li>
+        </ul>
+    </ion-item>
+    <ion-item class="item" ng-repeat="item in items" style="padding-top: 0px !important; padding-bottom: 0px !important;">
+        <div class="row" ng-click="showMangaMore(item)">
+            {{item.title}}
+        </div>
+    </ion-item>
+</ion-list>
+<div class="bar bar-footer" style="margin-bottom: 80px;">
+    <ul ng-if="pager.pages.length" class="pagination">
+        <li ng-class="{disabled:pager.currentPage === 1}">
+            <a ng-click="setPage(pager.currentPage - 1)"> < </a>
+        </li>
+        <li ng-repeat="page in pager.pages" ng-class="{active:pager.currentPage === page}">
+            <a ng-click="setPage(page)">{{page}}</a>
+        </li>
+        <li ng-class="{disabled:pager.currentPage === pager.totalPages}">
+            <a ng-click="setPage(pager.currentPage + 1)"> > </a>
+        </li>
+    </ul>
+</div>

@@ -1,0 +1,41 @@
+<ion-list>
+    <ion-item class="item">
+        <div class="row" style="padding-top: 0px !important; padding-bottom: 0px !important;">
+            <div class="col col-75">
+                <input ion-autocomplete type="text" readonly="readonly" class="ion-autocomplete"
+                       autocomplete="off" ng-model="searchData.title" items-method="querySearch(query)"
+                       item-value-key="id" item-view-value-key="title" max-selected-items="1"
+                       items-clicked-method="selectTitle(callback)" placeholder="Saisir un titre..."/>
+            </div>
+            <div class="col col-25" ng-show="synopsisExist">
+                <button class="button button-icon icon ion-eye" ng-click="showSynopsis()"></button>
+            </div>
+        </div>
+    </ion-item>
+    <form ng-submit="doGenerate()">
+        <ion-item class="item item-input item-select">
+            <div class="input-label">
+                Tome
+            </div>
+            <select ng-model="searchData.tome" ng-change="selectTome()">
+                <option ng-repeat="tome in tomes" value="{{tome.id}}">
+                    {{tome.title}}
+                </option>
+            </select>
+        </ion-item>
+        <ion-item class="item item-input item-select">
+            <div class="input-label">
+                Chapitre
+            </div>
+            <select ng-model="searchData.chapter" ng-change="selectChapter()">
+                <option ng-repeat="chapter in chapters" value="{{chapter.id}}" >
+                    {{chapter.title}}
+                </option>
+            </select>
+        </ion-item>
+        <ion-item ng-show="tomeOrChapterSelect">
+            <button class="button button-block button-assertive ion-wand"
+                    type="submit">&nbsp;&nbsp;&nbsp;Générer {{typeGenerateInfo}}</button>
+        </ion-item>
+    </form>
+</ion-list>
