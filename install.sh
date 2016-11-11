@@ -11,7 +11,6 @@ npm install >> ${path_install}/install.log
 export PATH=${path_install}/node_modules/cordova/bin:$PATH
 export PATH=${path_install}/node_modules/ionic/bin:$PATH
 export PATH=${path_install}/node_modules/bower/bin:$PATH
-export PATH=${current_path}/node_modules/gulp/bin:$PATH
 
 echo "#####################################" >> ${path_install}/install.log
 echo "## Installation des modules nodejs ##" >> ${path_install}/install.log
@@ -19,6 +18,7 @@ echo "#####################################" >> ${path_install}/install.log
 
 cd ${path_install}/App
 npm install >> ${path_install}/install.log
+export PATH=${path_install}/App/node_modules/gulp/bin:$PATH
 
 echo "######################################" >> ${path_install}/install.log
 echo "## Installation des plugins cordova ##" >> ${path_install}/install.log
@@ -45,7 +45,7 @@ echo "## Generation des fichiers css ##" >> ${path_install}/install.log
 echo "#################################" >> ${path_install}/install.log
 
 cd ${path_install}/App
-gulp >> ${path_install}/install.log
+gulp.js >> ${path_install}/install.log
 
 echo "###########################" >> ${path_install}/install.log
 echo "## Installation du hooks ##" >> ${path_install}/install.log
