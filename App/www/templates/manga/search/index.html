@@ -1,0 +1,20 @@
+<ion-view view-title="{{ tabTitle }}">
+  <ion-content>
+    <div ng-controller="MangaSearchListCtrl" id="tabSearchListMangaCtrl" ng-show="showTabSearchList">
+      <tabsearchlistmanga-template></tabsearchlistmanga-template>
+    </div>
+    <div ng-controller="MangaSearchAdvancedCtrl" id="tabSearchAdvancedMangaCtrl" ng-show="showTabSearchAdvanced">
+      <tabsearchadvancedmanga-template></tabsearchadvancedmanga-template>
+    </div>
+  </ion-content>
+  <div class="tabs tabs-icon-top">
+    <a class="tab-item" ng-click="showTabMangaSearchList()">
+      <i class="icon ion-ios-list-outline"></i>
+      Liste
+    </a>
+    <a class="tab-item" ng-click="showTabMangaSearchAdvanced()">
+      <i class="icon ion-plus-round"></i>
+      Avancée
+    </a>
+  </div>
+</ion-view>
