@@ -1,4 +1,4 @@
-cd /home/GrabManga
+cd /home/docker/GrabManga
 
 current_path=`pwd`
 param1=$1
